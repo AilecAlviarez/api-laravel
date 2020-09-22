@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Expence extends Model
 {
     use HasFactory;
+    protected $table='expences';
     protected $primaryKey='expence_id';
     protected $fillable=['user_id','status_id','total','method_pay_id'];
     public function detail_expences(){

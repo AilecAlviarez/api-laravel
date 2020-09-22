@@ -21,7 +21,7 @@ class ExpenceDetailTableCreate extends Migration
              $table->decimal('price')->unsigned();
              $table->foreign('product_id')->references('product_id')->on('products');
              $table->foreign('expence_id')->references('expence_id')->on('expences');
-            $table->timestamp();
+            $table->timestamps();
         });
     }
 

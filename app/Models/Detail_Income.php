@@ -9,5 +9,6 @@ class Detail_Income extends Model
 {
     use HasFactory;
     protected $primaryKey='detail_income_id';
+    protected $table='detail_incomes';
     protected $fillable=['product_id','quantity','price','income_id'];
 }

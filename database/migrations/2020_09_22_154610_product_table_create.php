@@ -19,6 +19,7 @@ class ProductTableCreate extends Migration
             $table->decimal('product_price')->unsigned();
             $table->string('product_description');
             $table->unsignedBigInteger('category_id');
+            $table->timestamps();
             $table->foreign('category_id')->references('category_id')->on('categories');
         });
     }

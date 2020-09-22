@@ -9,6 +9,7 @@ class Income extends Model
 {
     use HasFactory;
     protected $primaryKey='income_id';
+    protected $table='incomes';
     protected $fillable=['user_id'];
     public function provider(){
         return $this->hasOne(User::class,'user_id','user_id');

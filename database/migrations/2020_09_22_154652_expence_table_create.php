@@ -20,9 +20,9 @@ class ExpenceTableCreate extends Migration
               $table->unsignedBigInteger('status_id');
                 $table->unsignedBigInteger('method_pay_id');
                 $table->foreign('user_id')->references('user_id')->on('users');
-            $table->foreign('status_id')->references('status_id')->on('status');
+            $table->foreign('status_id')->references('status_id')->on('statuses');
             $table->foreign('method_pay_id')->references('method_pay_id')->on('method_pays');
-            $table->timestamp();
+            $table->timestamps();
 
         });
     }

@@ -17,7 +17,7 @@ class IncomeTableCreate extends Migration
            $table->id('income_id');
            $table->unsignedBigInteger('user_id');
            $table->foreign('user_id')->references('user_id')->on('users');
-           $table->timestamp();
+            $table->timestamps();
         });
     }
 

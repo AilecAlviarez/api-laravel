@@ -20,10 +20,10 @@ class IncomeDetailTableCreate extends Migration
                $table->integer('quantity')->unsigned();
                $table->decimal('price')->unsigned();
                $table->unsignedBigInteger('income_id');
-               $table->foreign('product_id')->references('product_id')->on('product_id');
-               $table->foreign('income_id')->references('income_id')->on('income_id');
+               $table->foreign('product_id')->references('product_id')->on('products');
+               $table->foreign('income_id')->references('income_id')->on('incomes');
 
-
+               $table->timestamps();
         });
     }
 
