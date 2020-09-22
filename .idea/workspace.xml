@@ -7,10 +7,6 @@
     <list default="true" id="c0ee371a-4ae5-450c-858d-2e44cf509a7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/Detail_ExpenceFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/Detail_ExpenceFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/Detail_IncomeFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/Detail_IncomeFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ExpenceFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ExpenceFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ProductFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ProductFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
     </list>
