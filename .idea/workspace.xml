@@ -6,23 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ee371a-4ae5-450c-858d-2e44cf509a7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Detail_Expence.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Detail_Expence.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Detail_Income.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Detail_Income.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Expence.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Expence.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Income.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Income.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Inventary.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Inventary.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/MethodPay.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MethodPay.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Status.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Status.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_154530_status_table_create.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_154530_status_table_create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_154547_method_pay_table_create.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_154547_method_pay_table_create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_154600_category_table_create.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_154600_category_table_create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_154610_product_table_create.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_154610_product_table_create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_154633_income_table_create.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_154633_income_table_create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_154642_income_detail_table_create.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_154642_income_detail_table_create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_154652_expence_table_create.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_154652_expence_table_create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/InventaryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/InventaryFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_154622_inventary_table_create.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_154622_inventary_table_create.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_154701_expence_detail_table_create.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_154701_expence_detail_table_create.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
     </list>
@@ -158,7 +144,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../apiLaravel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -177,7 +163,8 @@
       <option name="presentableId" value="Default" />
       <updated>1600746587102</updated>
       <workItem from="1600746588178" duration="2184000" />
-      <workItem from="1600783426813" duration="10884000" />
+      <workItem from="1600783426813" duration="10921000" />
+      <workItem from="1600802064912" duration="2230000" />
     </task>
     <servers />
   </component>

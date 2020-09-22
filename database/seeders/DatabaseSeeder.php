@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
         Income::factory(50)->create();
         Detail_Income::factory(100)->create();
         Detail_Expence::factory(60)->create();
-        Inventary::factory(1)->create();
+        Inventary::factory(100)->create();
 
     }
 }

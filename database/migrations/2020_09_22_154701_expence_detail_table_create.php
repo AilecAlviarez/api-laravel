@@ -23,6 +23,7 @@ class ExpenceDetailTableCreate extends Migration
              $table->foreign('expence_id')->references('expence_id')->on('expences');
             $table->timestamps();
         });
+
     }
 
     /**

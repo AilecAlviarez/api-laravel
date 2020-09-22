@@ -25,7 +25,7 @@ class InventaryFactory extends Factory
     {
         return [
             'product_id'=>Product::all()->random()->product_id,
-            'cant_product'=>$this->faker->numberBetween(10,200),
+            'cant_product_current'=>$this->faker->numberBetween(10,200),
             'stock_max'=>$this->faker->numberBetween(30,500)
             ,'stock_min'=>$this->faker->numberBetween(10,29)
         ];
