@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         User::factory(60)->create();
+      //  DB::table('users')->insert(['name'=>'yoyo','email'=>'mariaramireeez2002@gmail.com','password'=>'123456','role'=>User::ADMIN]);
         Category::factory(10)->create();
         Status::factory(3)->create();
         MethodPay::factory(2)->create();
