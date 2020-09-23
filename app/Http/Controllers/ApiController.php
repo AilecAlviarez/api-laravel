@@ -42,10 +42,11 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
         return $this->responseSuccesfully(['message'=>"deleted from {$this->nameplural} "]);
         // TODO: Implement _delete() method.
     }
-    public function _update(Model $model,Request $request)
+    public function _update(Model $model,  $request)
     {
         // TODO: Implement _update() method.
     }
+
     public function _showOne(Model $instance)
     {
         // TODO: Implement _showOne() method.

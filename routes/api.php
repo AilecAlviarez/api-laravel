@@ -18,9 +18,9 @@ routes are loaded by the RouteServiceProvider within a group which
 /*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });*/
-//Route::middleware(['api'])->apiResource('/admin',\App\Http\Controllers\Admin\AdminController::class)->except(['edit','create']);
+Route::middleware(['api'])->apiResource('/admin',\App\Http\Controllers\Admin\AdminController::class)->except(['edit','create']);
 Route::middleware([])->group(function(){
     Route::post('/login',[\App\Http\Controllers\AuthController::class,'login']);
 
 });
-Route::apiResource('/admin',\App\Http\Controllers\Admin\AdminController::class);
+//Route::apiResource('/admin',\App\Http\Controllers\Admin\AdminController::class);
