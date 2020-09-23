@@ -21,14 +21,18 @@ class AuthController extends ApiController
     }
     public function login(Request $request){
         $credentials=$this->getCredentials($request);
-       $this->validateRequest($credentials);
 
+            if(!$this->validateRequest($credentials)){
 
-           if(!$token=$this->validateToken($credentials)){
-                return $this->errorResponse('unathorize',401);
-           }
+                if(!$token=$this->validateToken($credentials)){
+                    return $this->errorResponse('unathorize',401);
+                }
 
-           return $this->respondWithToken($token,$credentials);
+                return $this->respondWithToken($token,$credentials);
+
+            }
+       return $this->validateRequest($credentials);
+
 
     }
     public function getUserRole($credentials){
@@ -48,7 +52,11 @@ class AuthController extends ApiController
     }
     public function validateRequest($credentials){
         $validate=Validator::make($credentials,['email'=>'required|string','password'=>'required|string|min:6']);
-        return ($validate->fails())?$this->errorResponse($validate->errors,401):true;
+        if($validate->fails()){
+            return $this->errorResponse($validate->errors(),401);
+        }
+        return null;
+
     }
     public function respondWithToken($token,$credentials)
     {
