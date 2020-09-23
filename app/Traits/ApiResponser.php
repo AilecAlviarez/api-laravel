@@ -19,7 +19,7 @@ trait ApiResponser
         return $this->responseSuccesfully($collection,$code);
     }
     public function errorResponse($error,$code=500){
-        return $this->responseSuccesfully($error,$code);
+        return $this->responseSuccesfully(['error'=>$error],$code);
     }
 
 }
