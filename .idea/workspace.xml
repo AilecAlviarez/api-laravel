@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ee371a-4ae5-450c-858d-2e44cf509a7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/ApiResponser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/ApiResponser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/Istore.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/Istore.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/interfaces/Iupdate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/Iupdate.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
