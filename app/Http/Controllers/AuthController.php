@@ -47,21 +47,11 @@ class AuthController extends ApiController
     }
     public function validateToken($credentials){
         $user=$this->getUserRole($credentials);
-        return JWTAuth::fromUser($user,['role' => $user->role]);
-
-              // return  JWTAuth::attempt($credentials,$role);
+       // return JWTAuth::fromUser($user);
+        return JWTAuth::attempt($credentials);
+          //  return auth()->claims(['role'=>$user->role])->attempt($credentials);
     }
-    /*public function refresh(){
 
-        try{
-
-            return $this->responseSuccesfully(auth()->refresh());
-        }catch ( TokenExpiredException $exception){
-            return $this->errorResponse($exception->getMessage(),422);
-        }catch ( TokenBlacklistedException $exception){
-            return $this->errorResponse($exception->getMessage(),422);
-        }
-    }*/
     public function getCredentials($request){
       return  $credentials=$request->only(['email','password']);
 
@@ -79,7 +69,8 @@ class AuthController extends ApiController
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'expires_in' => auth()->factory()->getTTL() * 60,
+            'user_role'=>$this->getUserRole($credentials)->role
 
         ],200);
     }
