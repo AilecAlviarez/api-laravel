@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0ee371a-4ae5-450c-858d-2e44cf509a7f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/interfaces/Idelete.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/Ishow.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/IshowAll.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/Istore.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/Iupdate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/interfaces/validateRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Traits/ApiResponser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/ApiResponser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

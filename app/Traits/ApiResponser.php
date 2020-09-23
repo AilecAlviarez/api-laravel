@@ -22,4 +22,5 @@ trait ApiResponser
         return $this->responseSuccesfully(['error'=>$error],$code);
     }
 
+
 }

@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Tymon\JWTAuth\Exceptions\TokenBlacklistedException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\JWT;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class AuthController extends ApiController
@@ -19,6 +23,7 @@ class AuthController extends ApiController
 
         $this->middleware('auth:api', ['except' => ['login']]);
     }
+
     public function login(Request $request){
         $credentials=$this->getCredentials($request);
 
@@ -46,6 +51,17 @@ class AuthController extends ApiController
 
               // return  JWTAuth::attempt($credentials,$role);
     }
+    /*public function refresh(){
+
+        try{
+
+            return $this->responseSuccesfully(auth()->refresh());
+        }catch ( TokenExpiredException $exception){
+            return $this->errorResponse($exception->getMessage(),422);
+        }catch ( TokenBlacklistedException $exception){
+            return $this->errorResponse($exception->getMessage(),422);
+        }
+    }*/
     public function getCredentials($request){
       return  $credentials=$request->only(['email','password']);
 
