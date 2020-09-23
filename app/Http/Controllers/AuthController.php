@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Tymon\JWTAuth\JWT;
 
 
 class AuthController extends ApiController
@@ -26,14 +27,24 @@ class AuthController extends ApiController
            if(!$token=$this->validateToken($credentials)){
                 return $this->errorResponse('unathorize',401);
            }
+
            return $this->respondWithToken($token,$credentials);
 
     }
+    public function getUserRole($credentials){
+
+        $user=User::firstWhere('email',$credentials['email']);
+        return $user;
+    }
     public function validateToken($credentials){
-       return  JWTAuth::attempt($credentials);
+        $user=$this->getUserRole($credentials);
+        return JWTAuth::fromUser($user,['role' => $user->role]);
+
+              // return  JWTAuth::attempt($credentials,$role);
     }
     public function getCredentials($request){
-        return $credentials=$request->only(['email','password']);
+      return  $credentials=$request->only(['email','password']);
+
     }
     public function validateRequest($credentials){
         $validate=Validator::make($credentials,['email'=>'required|string','password'=>'required|string|min:6']);
@@ -45,6 +56,7 @@ class AuthController extends ApiController
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60
+
         ],200);
     }
 }
