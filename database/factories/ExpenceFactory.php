@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Buyer;
 use App\Models\Expence;
 use App\Models\MethodPay;
 use App\Models\Status;
@@ -26,7 +27,7 @@ class ExpenceFactory extends Factory
     public function definition()
     {
         return [
-            'user_id'=>User::all()->random()->user_id,
+            'user_id'=>User::all()->where('role','==','0')->random()->user_id,
             'status_id'=>Status::all()->random()->status_id,
             'total'=>$this->faker->randomFloat(1,10,20),
             'method_pay_id'=>MethodPay::all()->random()->method_pay_id

@@ -14,5 +14,6 @@ class BuyerScope implements Scope
    {
        // TODO: Implement apply() method.
        $builder->has('expences');
+
    }
 }

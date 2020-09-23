@@ -17,7 +17,7 @@ class Admin extends User
        static::addGlobalScope(new AdminScope);
    }
     public function incomes(){
-        return $this->hasMany(Income::class,'user_id','user_id');
+        return $this->hasMany(Income::class,'user_id',$this->primaryKey);
     }
 
 
