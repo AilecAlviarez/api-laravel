@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0ee371a-4ae5-450c-858d-2e44cf509a7f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Scopes/AdminScope.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Scopes/BuyerScope.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +171,7 @@
       <workItem from="1600783426813" duration="10921000" />
       <workItem from="1600802064912" duration="5015000" />
       <workItem from="1600816995531" duration="798000" />
-      <workItem from="1600889390099" duration="3936000" />
+      <workItem from="1600889390099" duration="5773000" />
     </task>
     <servers />
   </component>
@@ -191,10 +191,10 @@
       <screen x="0" y="0" width="1366" height="731" />
     </state>
     <state x="466" y="124" width="428" height="484" key="FileChooserDialogImpl/0.0.1366.731@0.0.1366.731" timestamp="1600817680084" />
-    <state x="449" y="87" width="490" height="558" key="NewPhpClassDialog" timestamp="1600880846405">
+    <state x="449" y="87" width="490" height="558" key="NewPhpClassDialog" timestamp="1600895817512">
       <screen x="0" y="0" width="1366" height="731" />
     </state>
-    <state x="449" y="87" width="490" height="558" key="NewPhpClassDialog/0.0.1366.731@0.0.1366.731" timestamp="1600880846405" />
+    <state x="449" y="87" width="490" height="558" key="NewPhpClassDialog/0.0.1366.731@0.0.1366.731" timestamp="1600895817512" />
     <state x="345" y="160" key="run.anything.popup" timestamp="1600808498524">
       <screen x="0" y="0" width="1366" height="731" />
     </state>

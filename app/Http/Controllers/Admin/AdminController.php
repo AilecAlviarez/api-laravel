@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class AdminController extends ApiController
     public function __construct()
     {
         $this->name ='user';
-        $this->model = new User();
+        $this->model = new Admin();
         $this->namePlural = 'users';
 
     }
