@@ -17,6 +17,9 @@ class Expence extends Model
     public function status(){
         return $this->hasOne(Status::class);
     }
+    public function buyer(){
+        return $this->hasOne(Buyer::class,'user_id','user_id');
+    }
     public function MethodPay(){
         return $this->hasOne(MethodPay::class);
     }
