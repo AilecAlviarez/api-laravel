@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 
 interface Ishow
 {
-   public function _show(Model $model);
+   public function _showOne(Model $model);
 }

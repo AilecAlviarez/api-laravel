@@ -19,7 +19,7 @@ routes are loaded by the RouteServiceProvider within a group which
     return $request->user();
 });*/
 Route::middleware(['api'])->group(function(){
-  //s  Route::post('/login',[\App\Http\Controllers\AuthController::class,'login']);
+    Route::apiResource(\App\Http\Controllers\Admin\AdminController::class);
 });
 Route::middleware([])->group(function(){
     Route::post('/auth/login',[\App\Http\Controllers\AuthController::class,'login']);
