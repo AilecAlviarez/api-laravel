@@ -19,8 +19,9 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
     public $model;
     public $name;
     public $nameplural;
-    public $data=[];
+    //public $data=[];
     public $request;
+
 
 
     public function _store($request)
@@ -30,7 +31,7 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
 
     public function _showAll()
     {
-       $collection= $this->model->find();
+       $collection= $this->model->all();
         // TODO: Implement _showAll() method.
         return $this->showAll($collection);
     }
