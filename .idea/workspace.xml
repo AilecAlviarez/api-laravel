@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/interfaces/Ishow.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/interfaces/Ishow.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_154622_inventary_table_create.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_154622_inventary_table_create.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +148,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ApiTatucoLaravel-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../apiLaravel" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -173,7 +172,8 @@
       <workItem from="1600816995531" duration="798000" />
       <workItem from="1600889390099" duration="10443000" />
       <workItem from="1600908688701" duration="10602000" />
-      <workItem from="1600961280760" duration="7201000" />
+      <workItem from="1600961280760" duration="7225000" />
+      <workItem from="1600977243399" duration="3278000" />
     </task>
     <servers />
   </component>
@@ -189,10 +189,10 @@
       <screen x="0" y="0" width="1366" height="731" />
     </state>
     <state x="416" y="124" width="528" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.731@0.0.1366.731" timestamp="1600909752479" />
-    <state x="466" y="124" width="428" height="484" key="FileChooserDialogImpl" timestamp="1600967263520">
+    <state x="466" y="124" width="428" height="484" key="FileChooserDialogImpl" timestamp="1600978607477">
       <screen x="0" y="0" width="1366" height="731" />
     </state>
-    <state x="466" y="124" width="428" height="484" key="FileChooserDialogImpl/0.0.1366.731@0.0.1366.731" timestamp="1600967263520" />
+    <state x="466" y="124" width="428" height="484" key="FileChooserDialogImpl/0.0.1366.731@0.0.1366.731" timestamp="1600978607477" />
     <state x="815" y="106" width="490" height="558" key="NewPhpClassDialog" timestamp="1600909654436">
       <screen x="0" y="0" width="1366" height="731" />
     </state>
