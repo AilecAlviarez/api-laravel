@@ -59,7 +59,7 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
         // TODO: Implement _showOne() method.
         return $this->showOne($instance);
     }
-    public function _GetRelationsWithArrayCollections($array_collection,$property){
+    public function _GetRelations($array_collection,$property){
         $data=[];
 
         if(method_exists($array_collection[0],$property)){

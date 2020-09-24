@@ -59,7 +59,7 @@ class AdminProductController extends ApiController
     {
         $admin=$this->_getInstance($id);
 
-        $products=$this->_GetRelationsWithArrayCollections($admin->detail_incomes,'inventary');
+        $products=$this->_GetRelations($admin->detail_incomes,'inventary');
 
 
         return $this->responseSuccesfully($products);
