@@ -10,6 +10,7 @@ use App\Models\Income;
 use App\Models\Inventary;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AdminProductController extends ApiController
 {
@@ -138,10 +139,37 @@ class AdminProductController extends ApiController
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request, $id,$idProduct)
     {
+        $admin=$this->_getInstance($id);
+        $validation=Validator::make($request->all(),$this->rules);
+
+        if($validation->fails())return $this->errorResponse($validation->errors());
+        $inventaries=$this->_GetRelations($admin->detail_incomes,'inventary');
+       $products=$this->_GetRelations($inventaries,'product');
+        $productExist=$this->productExist($products,$idProduct);
+        if($productExist){
+            $product=Product::find($productExist);
+            $product->update($request->all());
+             return $this->responseSuccesfully($product);
+        }
+        return $this->responseSuccesfully($productExist);
+        //return $this->errorResponse('error update product',404);
+
+
         //
+
     }
+    public function productExist($products,$idProduct){
+        $productExist=null;
+        foreach ($products as $product){
+            if($product->product_id==$idProduct){
+                 $productExist=$product->product_id;
+            }
+        }
+        return $productExist;
+    }
+
 
     /**
      * Remove the specified resource from storage.
