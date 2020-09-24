@@ -9,5 +9,5 @@ use Illuminate\Database\Eloquent\Model;
 
 interface Iupdate
 {
-    public function _update(Model $model,Request $request);
+    public function _update(Model $model,Request $request,$rules);
 }

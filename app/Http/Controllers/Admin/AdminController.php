@@ -14,7 +14,7 @@ class AdminController extends ApiController
     public function __construct()
     {
         $this->name ='user';
-        $this->model = new Admin();
+        $this->model = new User();
         $this->namePlural = 'users';
 
     }

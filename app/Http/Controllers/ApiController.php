@@ -8,14 +8,16 @@ use App\interfaces\Ishow;
 use App\interfaces\IshowAll;
 use App\interfaces\Istore;
 use App\interfaces\Iupdate;
+use App\interfaces\IValidateRequest;
 use App\Models\Detail_Income;
 use App\Models\Income;
 use App\Traits\ApiResponser;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
-class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,Idelete,IGetTableThrough
+class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,Idelete,IGetTableThrough,IValidateRequest
 {
     //
     use ApiResponser;
@@ -29,10 +31,22 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
         return $this->model->hasManyThrough($table,$through,$ForeignTrough,$ForeignTable);
 
     }
+    public function validateRequest($request, $rules)
+    {
+        // TODO: Implement validateRequest() method.
+        $validator=Validator::make($request,$rules);
+        if($validator->fails()){
+            return $this->errorResponse($validator->errors(),401);
+        }
 
-    public function _store($request)
+    }
+
+    public function _store($request,$rules)
     {
         // TODO: Implement _store() method.
+        $this->validateRequest($request,$rules);
+        $instance=$this->model->create($request->all());
+        return $instance;
     }
 
     public function _showAll()
@@ -42,15 +56,22 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
         return $this->showAll($collection);
     }
 
-    public function _delete(Model $model)
+    public function _delete($id)
     {
-        $this->model->delete($model);
+        $instance=$this->_getInstance($id);
+        //$this->model->delete($model);
+        $instance->delete();
         return $this->responseSuccesfully(['message'=>"deleted from {$this->nameplural} "]);
         // TODO: Implement _delete() method.
     }
-    public function _update(Model $model,  $request)
+    public function _update($id,  $request,$rules)
     {
         // TODO: Implement _update() method.
+        $instance=$this->_getInstance($id);
+        $this->validateRequest($request,$rules);
+        $instance->update($request);
+        $instance->save();
+        return $this->responseSuccesfully(["message"=>"product from {$this->nameplural}","update {$this->name}"=>$instance]);
     }
 
     public function _showOne( $id)

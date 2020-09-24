@@ -4,7 +4,7 @@
 namespace App\interfaces;
 
 
-interface validateRequest
+interface IValidateRequest
 {
-    public function validateRequest($credentials);
+    public function validateRequest($request,$rules);
 }
