@@ -33,9 +33,9 @@ class AdminProductController extends ApiController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
-        $admin=$this->_getInstance(58);
+        $admin=$this->_getInstance($id);
 
        $products=$this->_getProducts($request,$admin->user_id);
 
@@ -57,16 +57,15 @@ class AdminProductController extends ApiController
         $data['category_id']=$request['category_id'];
         return $data;
     }
-    public function _getProducts($request,$id){
-        $productsCreatesInventary=[];
+    private function _getProducts($request,$id){
+       $data=[];
+        $detail_income=[];
         $income=Income::create(['user_id'=>$id]);
         for($i=0;$i<count($request->all());$i++){
             $dataProduct=$this->getDataProduct($request[$i]);
 
             $dataInventary=$this->getDataInventary($request[$i]);
             $newProduct=Product::create($dataProduct);
-
-
             $dataInventary['product_id']=$newProduct->product_id;
 
             $newInventary=Inventary::create($dataInventary);
@@ -79,11 +78,15 @@ class AdminProductController extends ApiController
 
 
             $detailIncome=Detail_Income::create($dataDetail);
-            array_push($productsCreatesInventary,$dataDetail);
-         //   array_push($productsCreatesInventary,$income);
+           // $data['detail_income']=$detailIncome;
+            array_push($detail_income,$dataDetail);
+
 
         }
-        return $productsCreatesInventary;
+           //array_push($incomeTrasaction,$income);
+            $data['income']=$income;
+            $data['detail_incomes']=$detail_income;
+        return $data;
 
     }
 
