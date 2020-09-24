@@ -17,4 +17,7 @@ class Product extends Model
     public function category(){
         return $this->hasOne(Category::class);
     }
+    public function inventary(){
+        return $this->hasOne(Inventary::class,'product_id','product_id');
+    }
 }

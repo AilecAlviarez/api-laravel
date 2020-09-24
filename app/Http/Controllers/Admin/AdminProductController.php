@@ -149,9 +149,16 @@ class AdminProductController extends ApiController
        $products=$this->_GetRelations($inventaries,'product');
         $productExist=$this->productExist($products,$idProduct);
         if($productExist){
+            $dataInventary=$this->getDataInventary($request);
+            $dataProduct=$this->getDataProduct($request);
             $product=Product::find($productExist);
-            $product->update($request->all());
-             return $this->responseSuccesfully($product);
+            $product->update($dataProduct);
+            $inventary=$product->inventary;
+            $inventary->update($dataInventary);
+            $data=[];
+            $data['product_update']=$product;
+            $data['inventary_update']=$inventary;
+             return $this->responseSuccesfully($data);
         }
         return $this->responseSuccesfully($productExist);
         //return $this->errorResponse('error update product',404);

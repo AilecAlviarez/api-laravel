@@ -30,5 +30,6 @@ Route::middleware(['api','admin'])->prefix('admin')->group(function(){
     Route::post('/products/{id}',[\App\Http\Controllers\Admin\AdminProductController::class,'store']);
     Route::get('/categories',[\App\Http\Controllers\Admin\AdminCategoryController::class,'index']);
     Route::get('/incomes/{id}',[\App\Http\Controllers\Admin\AdminIncomeController::class,'index']);
+    Route::get('inventary/{id}',[\App\Http\Controllers\Admin\AdminInventaryController::class,'index']);
 });
 
