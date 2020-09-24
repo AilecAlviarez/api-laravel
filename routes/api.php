@@ -26,7 +26,7 @@ Route::middleware(['api','admin'])->prefix('admin')->group(function(){
     Route::apiResource('/',\App\Http\Controllers\Admin\AdminController::class)->except(['edit','create']);
     Route::apiResource('/products',\App\Http\Controllers\Admin\AdminProductController::class)->only(['show']);
     //para que el metodo store pueda recibir un parametro se asigna explicitamente
-
     Route::post('/products/{id}',[\App\Http\Controllers\Admin\AdminProductController::class,'store']);
+    Route::get('/categories',[\App\Http\Controllers\Admin\AdminCategoryController::class,'index']);
 });
 
