@@ -15,9 +15,9 @@ class InventaryTableCreate extends Migration
     {
         Schema::create('inventary', function (Blueprint $table) {
             $table->id('inventary_id');
-            $table->integer('cant_product_current');
-            $table->integer('stock_max')->unsigned();
-             $table->integer('stock_min')->unsigned();
+            $table->integer('cant_product_current')->nullable()->default(1);
+            $table->integer('stock_max')->unsigned()->default(30);
+             $table->integer('stock_min')->unsigned()->default(10);
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('product_id')->on('products');
 

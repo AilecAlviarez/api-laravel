@@ -77,7 +77,7 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
     public function _getInstance($id)
     {
         // TODO: Implement _getInstance() method.
-        $instance=$this->model->findOrFail($id);
-        return $instance;
+        return $this->model->findOrFail($id);
+
     }
 }
