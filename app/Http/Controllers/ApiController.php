@@ -65,7 +65,7 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
         if(method_exists(class_basename($this->model),$method)){
             foreach ($arrayCollections as $instance){
 
-                array_push($arrayCollections,$instance);
+                array_push($arrayCollections,call_user_func($method,$instance));
             }
 
         }

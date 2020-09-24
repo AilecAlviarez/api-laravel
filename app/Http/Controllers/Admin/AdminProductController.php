@@ -58,10 +58,11 @@ class AdminProductController extends ApiController
     public function show( $id)
     {
         $admin=$this->_getInstance($id);
-        $products=$this->_GetManyToOneToManyTrough($admin->detail_incomes,'inventary');
-       /*foreach ($admin->detail_incomes as $detail_income){
+        $products=[];
+        //$products=$this->_GetManyToOneToManyTrough($admin->detail_incomes,'inventary');
+       foreach ($admin->detail_incomes as $detail_income){
             array_push($products,$detail_income->inventary);
-        }*/
+        }
 
         return $this->responseSuccesfully($products);
 

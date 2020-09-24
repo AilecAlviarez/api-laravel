@@ -20,8 +20,8 @@ class Admin extends User
     public function incomes(){
         return $this->hasMany(Income::class,'user_id',$this->primaryKey);
     }
-    public static function detail_incomes(){
-       return self::hasManyThrough(Detail_Income::class,Income::class,'user_id','income_id','user_id','income_id');
+    public function detail_incomes(){
+       return $this->hasManyThrough(Detail_Income::class,Income::class,'user_id','income_id','user_id','income_id');
     }
 
 
