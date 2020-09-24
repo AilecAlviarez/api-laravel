@@ -28,5 +28,6 @@ Route::middleware(['api','admin'])->prefix('admin')->group(function(){
     //para que el metodo store pueda recibir un parametro se asigna explicitamente
     Route::post('/products/{id}',[\App\Http\Controllers\Admin\AdminProductController::class,'store']);
     Route::get('/categories',[\App\Http\Controllers\Admin\AdminCategoryController::class,'index']);
+    Route::get('/incomes/{id}',[\App\Http\Controllers\Admin\AdminIncomeController::class,'index']);
 });
 
