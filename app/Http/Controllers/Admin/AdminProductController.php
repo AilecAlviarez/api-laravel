@@ -18,11 +18,23 @@ class AdminProductController extends ApiController
      *
      * @return \Illuminate\Http\Response
      */
+
+    private $rules=[
+            'product_name'=>'required|string',
+            'product_description'=>'required|string',
+            'product_price'=>'required|regex:/^\d+(\.\d{1,2})?$/',
+            'category_id'=>'required|integer',
+            'stock_max'=>'required|min:40|integer',
+            'stock_min'=>'required|min:10|integer',
+            'cant_product_current'=>'required|min:6|integer'
+
+        ];
     public function __construct()
     {
         $this->name ='user';
         $this->model = new Admin();
         $this->namePlural = 'users';
+
 
     }
 
@@ -37,10 +49,22 @@ class AdminProductController extends ApiController
     {
         $admin=$this->_getInstance($id);
 
-       $products=$this->_getProducts($request,$admin->user_id);
+        $validations=$this->validateColumns($request,$this->rules);
+        $getErrorsValidations=$this->_validateError($validations);
+        if($getErrorsValidations)return $getErrorsValidations;
 
+        $products=$this->_saveProducts($request,$admin->user_id);
 
         return $this->responseSuccesfully($products);
+    }
+    public function validateColumns($request,$rules){
+        $data=[];
+        for($i=0;$i<count($request->all());$i++){
+            $requestArray=(array) $request[$i];
+            array_push($data,$this->_validateRequest($requestArray,$rules));
+        }
+        return $data;
+
     }
    private function getDataInventary($request){
         $data=[];
@@ -57,7 +81,7 @@ class AdminProductController extends ApiController
         $data['category_id']=$request['category_id'];
         return $data;
     }
-    private function _getProducts($request,$id){
+    private function _saveProducts($request,$id){
        $data=[];
         $detail_income=[];
         $income=Income::create(['user_id'=>$id]);
@@ -78,12 +102,10 @@ class AdminProductController extends ApiController
 
 
             $detailIncome=Detail_Income::create($dataDetail);
-           // $data['detail_income']=$detailIncome;
             array_push($detail_income,$dataDetail);
 
 
         }
-           //array_push($incomeTrasaction,$income);
             $data['income']=$income;
             $data['detail_incomes']=$detail_income;
         return $data;

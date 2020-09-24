@@ -31,22 +31,34 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
         return $this->model->hasManyThrough($table,$through,$ForeignTrough,$ForeignTable);
 
     }
-    public function validateRequest($request, $rules)
+    public function _validateRequest($request, $rules)
     {
-        // TODO: Implement validateRequest() method.
         $validator=Validator::make($request,$rules);
         if($validator->fails()){
-            return $this->errorResponse($validator->errors(),401);
+            //return $this->errorResponse($validator->errors(),401);
+            return $validator->errors();
         }
+        return false;
 
     }
 
     public function _store($request,$rules)
     {
         // TODO: Implement _store() method.
-        $this->validateRequest($request,$rules);
+        $this->_validateRequest($request,$rules);
         $instance=$this->model->create($request->all());
         return $instance;
+    }
+    public function _validateError($validations)
+    {
+        // TODO: Implement _validateError() method.
+        foreach ($validations as $validation){
+            if(!!$validation){
+                 return $this->errorResponse($validation);
+
+            }
+        }
+
     }
 
     public function _showAll()
@@ -68,7 +80,7 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
     {
         // TODO: Implement _update() method.
         $instance=$this->_getInstance($id);
-        $this->validateRequest($request,$rules);
+        $this->_validateRequest($request,$rules);
         $instance->update($request);
         $instance->save();
         return $this->responseSuccesfully(["message"=>"product from {$this->nameplural}","update {$this->name}"=>$instance]);
