@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\interfaces\Idelete;
+use App\interfaces\IGetTableThrough;
 use App\interfaces\Ishow;
 use App\interfaces\IshowAll;
 use App\interfaces\Istore;
 use App\interfaces\Iupdate;
+use App\Models\Detail_Income;
+use App\Models\Income;
 use App\Traits\ApiResponser;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,Idelete
+class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,Idelete,IGetTableThrough
 {
     //
     use ApiResponser;
@@ -22,7 +25,10 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
     //public $data=[];
     public $request;
 
+    public function _getTableThrough($table,$through,$ForeignTrough,$ForeignTable){
+        return $this->model->hasManyThrough($table,$through,$ForeignTrough,$ForeignTable);
 
+    }
 
     public function _store($request)
     {
@@ -47,9 +53,29 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
         // TODO: Implement _update() method.
     }
 
-    public function _showOne(Model $instance)
+    public function _showOne( $id)
     {
+        $instance=$this->model->findOrFail($id);
         // TODO: Implement _showOne() method.
         return $this->showOne($instance);
+    }
+    public function _GetManyToOneToManyTrough($array_collection,$method){
+        $arrayCollections=[];
+        $variable=$method;
+        if(method_exists(class_basename($this->model),$method)){
+            foreach ($arrayCollections as $instance){
+
+                array_push($arrayCollections,$instance);
+            }
+
+        }
+
+
+    }
+    public function _getInstance($id)
+    {
+        // TODO: Implement _getInstance() method.
+        $instance=$this->model->findOrFail($id);
+        return $instance;
     }
 }

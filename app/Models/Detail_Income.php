@@ -11,4 +11,7 @@ class Detail_Income extends Model
     protected $primaryKey='detail_income_id';
     protected $table='detail_incomes';
     protected $fillable=['product_id','quantity','price','income_id'];
+    public static function inventary(){
+        return self::hasOneThrough(Inventary::class,Product::class,'product_id','product_id');
+    }
 }

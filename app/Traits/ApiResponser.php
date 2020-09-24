@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
 
 trait ApiResponser
 {
-    public function showOne(Model $instance,$code=200){
+    public function showOne( $instance,$code=200){
         return $this->responseSuccesfully($instance,$code);
     }
     public function responseSuccesfully($data,$code=200){

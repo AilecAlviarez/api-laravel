@@ -18,9 +18,14 @@ routes are loaded by the RouteServiceProvider within a group which
 /*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });*/
-Route::middleware(['api','admin'])->apiResource('/admin',\App\Http\Controllers\Admin\AdminController::class)->except(['edit','create']);
+//Route::middleware(['api','admin'])->apiResource('/admin',\App\Http\Controllers\Admin\AdminController::class)->except(['edit','create']);
 Route::middleware([])->group(function(){
     Route::post('/login',[\App\Http\Controllers\AuthController::class,'login']);
 
 });
+Route::middleware(['api','admin'])->group(function(){
+    Route::apiResource('/admin',\App\Http\Controllers\Admin\AdminController::class)->except(['edit','create']);
+    Route::apiResource('/admin/products',\App\Http\Controllers\Admin\AdminProductController::class);
+});
+
 //Route::apiResource('/admin',\App\Http\Controllers\Admin\AdminController::class);
