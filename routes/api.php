@@ -23,9 +23,9 @@ Route::middleware([])->group(function(){
     Route::post('/login',[\App\Http\Controllers\AuthController::class,'login']);
 
 });
-Route::middleware(['api','admin'])->group(function(){
-    Route::apiResource('/admin',\App\Http\Controllers\Admin\AdminController::class)->except(['edit','create']);
-    Route::apiResource('/admin/products',\App\Http\Controllers\Admin\AdminProductController::class);
+Route::middleware(['api','admin'])->prefix('admin')->group(function(){
+    Route::apiResource('/',\App\Http\Controllers\Admin\AdminController::class)->except(['edit','create']);
+    Route::apiResource('/products',\App\Http\Controllers\Admin\AdminProductController::class);
 });
 
 //Route::apiResource('/admin',\App\Http\Controllers\Admin\AdminController::class);

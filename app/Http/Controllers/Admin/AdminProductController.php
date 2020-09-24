@@ -23,20 +23,7 @@ class AdminProductController extends ApiController
         $this->namePlural = 'users';
 
     }
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -59,26 +46,15 @@ class AdminProductController extends ApiController
     {
         $admin=$this->_getInstance($id);
 
-        $products=$this->_GetRelations($admin->detail_incomes,'inventary');
-
-
-        return $this->responseSuccesfully($products);
+        $inventary=$this->_GetRelations($admin->detail_incomes,'inventary');
+         $products=$this->_GetRelations($inventary,'product');
+       // $products=$inventary[0]->product;
+        return $this->responseSuccesfully();
 
     }
-    public function getKey($key){
 
-}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Admin $admin)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.

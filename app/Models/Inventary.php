@@ -12,6 +12,6 @@ class Inventary extends Model
     protected $primaryKey='inventary_id';
     protected $fillable=['product_id','cant_product_current','stock_max','stock_min'];
     public function product(){
-        return $this->hasOne(Product::class);
+        return $this->hasOne(Product::class,'product_id','product_id');
     }
 }
