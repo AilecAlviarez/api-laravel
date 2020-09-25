@@ -88,9 +88,11 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
     public function _update(  $request,$id)
     {
         // TODO: Implement _update() method.
+        $validate=$this->_validate($request);
+        if(!!$validate)return $validate;
         $instance=$this->_getInstance($id);
         $instance->update($request->all());
-        //$instance->save();
+
 
         return $this->responseSuccesfully(["message"=>"product from {$this->nameplural}","update {$this->name}"=>$instance]);
     }
