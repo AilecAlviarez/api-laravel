@@ -122,7 +122,7 @@ class BuyerController extends ApiController
             $inventary = Inventary::find($dataDetail['product_id']);
             $verifiedStock = $inventary->cant_current_product;
             $verifiedStock =$verifiedStock- $dataDetail['quantity'];
-            if ($verifiedStock < $inventary->stock_min) {
+            if ($verifiedStock >= $inventary->stock_min) {
                 return $this->errorResponse('no se puede realizar el pedido porque supera el stock minimo');
 
             }
@@ -205,8 +205,8 @@ public function saveDetailsDelivery($request,$total,$expence,$buyer,$type){
         $dataDetail = $this->getDataDetail($request[$i]);
         $inventary = Inventary::find($dataDetail['product_id']);
         $verifiedStock = $inventary->cant_current_product;
-        $verifiedStock -= $dataDetail['quantity'];
-        if ($verifiedStock < $inventary->stock_min) {
+        $verifiedStock = $verifiedStock-$dataDetail['quantity'];
+        if ($verifiedStock >= $inventary->stock_min) {
             return $this->errorResponse('no se puede realizar el pedido porque supera el stock minimo');
 
         }
