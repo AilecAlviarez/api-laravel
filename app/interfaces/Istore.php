@@ -8,5 +8,5 @@ use http\Env\Request;
 
 interface Istore
 {
-    public function _store(Request $request,$rules);
+    public function _store(Request $request);
 }

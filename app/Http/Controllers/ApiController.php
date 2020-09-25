@@ -49,12 +49,14 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
 
     }
 
-    public function _store($request,$rules)
+    public function _store($request)
     {
         // TODO: Implement _store() method.
-        $this->_validateRequest($request,$rules);
+        $validate=$this->_validate($request);
+        if(!!$validate)return $validate;
+
         $instance=$this->model->create($request->all());
-        return $instance;
+        return $this->responseSuccesfully($instance);
     }
     public function _validateError($validations)
     {
