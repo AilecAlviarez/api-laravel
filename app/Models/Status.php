@@ -10,5 +10,5 @@ class Status extends Model
     use HasFactory;
     protected $table='statuses';
     protected $primaryKey='status_id';
-    protected $fillable=['status_name'];
+    protected $fillable=['status_name','expence_id'];
 }

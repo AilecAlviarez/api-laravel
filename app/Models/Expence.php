@@ -15,7 +15,7 @@ class Expence extends Model
         return $this->hasMany(Detail_Expence::class,'expence_id','expence_id');
     }
     public function status(){
-        return $this->hasOne(Status::class);
+        return $this->hasOne(Status::class,'status_id','status_id');
     }
     public function buyer(){
         return $this->hasOne(Buyer::class,'user_id','user_id');

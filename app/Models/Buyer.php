@@ -18,6 +18,12 @@ class Buyer extends User
     public function expences(){
         return $this->hasMany(Expence::class,'user_id',$this->primaryKey);
     }
+    public function detail_expences(){
+        return $this->hasManyThrough(Detail_Expence::class,Expence::class,'user_id','expence_id');
+    }
+    public function account(){
+        return $this->hasOne(Account::class,'user_id',$this->primaryKey);
+    }
 
 
 

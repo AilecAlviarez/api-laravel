@@ -70,7 +70,7 @@ class AuthController extends ApiController
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60,
-            'user_role'=>$this->getUserRole($credentials)->role
+            'user_role'=>$this->getUserRole($credentials)
 
         ],200);
     }
