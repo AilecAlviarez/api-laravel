@@ -135,7 +135,7 @@ class BuyerController extends ApiController
                 $saldoNew=$saldo-$total;
                 $expence_detail = Detail_Expence::create(array_merge($dataDetail, ['price' => $product->product_price, 'expence_id' => $expence->expence_id]));
 
-                    $saldoRestante=$this->updateSaldo($buyer,$saldo,$saldoNew);
+                $this->updateSaldo($buyer,$saldo,$saldoNew);
 
 
                 $expence->update(['total'=>$total]);
