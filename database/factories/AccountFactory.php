@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Account;
+use App\Models\Bank;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AccountFactory extends Factory
@@ -22,7 +24,11 @@ class AccountFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'bank_id'=>Bank::all()->random()->bank_id
+            ,'account_number'=>$this->faker->bankAccountNumber,
+            'user_id'=>User::all()->where('role','==',User::NOADMIN),
+            'saldo'=>$this->faker->randomFloat(1,10,200)
+
         ];
     }
 }

@@ -28,7 +28,6 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'role'=>$role=$this->faker->randomElement([User::ADMIN,User::NOADMIN]),
             'password' => bcrypt('password'), // password
-            'saldo'=>($role==User::NOADMIN)?$this->faker->randomFloat(1,10,200):null,
             'remember_token' => Str::random(10)
 
         ];

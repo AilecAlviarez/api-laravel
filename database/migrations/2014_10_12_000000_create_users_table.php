@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('role')->default(\App\Models\User::NOADMIN);
             $table->rememberToken();
             $table->timestamps();
-            $table->decimal('saldo')->nullable();
+
         });
     }
 

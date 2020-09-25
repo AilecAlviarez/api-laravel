@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Bank;
+use App\Models\MethodPay;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BankFactory extends Factory
@@ -22,7 +23,8 @@ class BankFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'bank_name'=>$this->faker->name,
+            'method_pay_id'=>MethodPay::all()->where('type','==',MethodPay::ACH)
         ];
     }
 }

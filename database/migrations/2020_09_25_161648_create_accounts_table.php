@@ -19,6 +19,7 @@ class CreateAccountsTable extends Migration
             $table->unsignedBigInteger('bank_id');
             $table->string('account_number');
             $table->foreign('user_id')->references('user_id')->on('users');
+            $table->decimal('saldo')->nullable();
             $table->timestamps();
         });
     }
