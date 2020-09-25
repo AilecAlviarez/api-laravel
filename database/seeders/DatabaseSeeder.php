@@ -27,29 +27,37 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $cant_user=60;
+        $cant_category=10;
+        $cant_status=3;
+        $method_pay=2;
+        $cant_bank=10;
+        $cant_expence=30;
+        $cant_product=100;
+        $cant_income=50;
+        $cant_detail_income=100;
+        $cant_detail_expence=60;
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
-        User::factory(60)->create();
+        User::factory($cant_user)->create();
       //  DB::table('users')->insert(['name'=>'yoyo','email'=>'mariaramireeez2002@gmail.com','password'=>'123456','role'=>User::ADMIN]);
-        Category::factory(10)->create();
-        Status::factory(3)->create();
-        MethodPay::factory(2)->create();
-        Bank::factory(10)->create();
-        Account::factory(60)->create();
+        Category::factory($cant_category)->create();
+        Status::factory($cant_status)->create();
+        MethodPay::factory($method_pay)->create();
+        Bank::factory($cant_bank)->create();
+        Account::factory($cant_user)->create();
 
 
-        Expence::factory(30)->create();
-        Product::factory(100)->create();
-
-
+        Expence::factory($cant_expence)->create();
+        Product::factory($cant_product)->create();
         /*DB::table('method_pays')->insert(['type'=>MethodPay::NOACH
         ]);
         DB::table('method_pays')->insert(['type'=>MethodPay::ACH]);*/
 
 
-        Income::factory(50)->create();
-        Detail_Income::factory(100)->create();
-        Detail_Expence::factory(60)->create();
-        Inventary::factory(100)->create();
+        Income::factory($cant_income)->create();
+        Detail_Income::factory($cant_detail_income)->create();
+        Detail_Expence::factory($cant_detail_expence)->create();
+        Inventary::factory($cant_product)->create();
 
     }
 }
