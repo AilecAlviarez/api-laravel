@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Account;
+use App\Models\Bank;
 use App\Models\Category;
 use App\Models\Detail_Expence;
 use App\Models\Detail_Income;
@@ -12,6 +14,7 @@ use App\Models\MethodPay;
 use App\Models\Product;
 use App\Models\Status;
 use App\Models\User;
+
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -30,6 +33,10 @@ class DatabaseSeeder extends Seeder
         Category::factory(10)->create();
         Status::factory(3)->create();
         MethodPay::factory(2)->create();
+        Bank::factory(10)->create();
+        Account::factory(60)->create();
+
+
         Expence::factory(30)->create();
         Product::factory(100)->create();
 
