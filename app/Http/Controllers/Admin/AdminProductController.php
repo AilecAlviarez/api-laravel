@@ -58,15 +58,7 @@ class AdminProductController extends ApiController
 
         return $this->responseSuccesfully($products);
     }
-    public function validateColumns($request,$rules){
-        $data=[];
-        for($i=0;$i<count($request->all());$i++){
-            $requestArray=(array) $request[$i];
-            array_push($data,$this->_validateRequest($requestArray,$rules));
-        }
-        return $data;
 
-    }
    private function getDataInventary($request){
         $data=[];
         $data['cant_product_current']=$request['cant_product_current'];

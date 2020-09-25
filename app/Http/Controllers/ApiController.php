@@ -48,12 +48,21 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
         return false;
 
     }
+    public function validateColumns($request,$rules){
+        $data=[];
+        for($i=0;$i<count($request->all());$i++){
+            $requestArray=(array) $request[$i];
+            array_push($data,$this->_validateRequest($requestArray,$rules));
+        }
+        return $data;
+
+    }
 
     public function _store($request)
     {
         // TODO: Implement _store() method.
         $validate=$this->_validate($request);
-        if(!!$validate)return $validate;
+        if($validate)return $validate;
 
         $instance=$this->model->create($request->all());
         return $this->responseSuccesfully($instance);
@@ -62,7 +71,7 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
     {
         // TODO: Implement _validateError() method.
         foreach ($validations as $validation){
-            if(!!$validation){
+            if($validation){
                  return $this->errorResponse($validation);
 
             }
@@ -89,7 +98,7 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
     {
         // TODO: Implement _update() method.
         $validate=$this->_validate($request);
-        if(!!$validate)return $validate;
+        if($validate)return $validate;
         $instance=$this->_getInstance($id);
         $instance->update($request->all());
 
