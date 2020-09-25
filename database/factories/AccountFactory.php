@@ -26,7 +26,7 @@ class AccountFactory extends Factory
         return [
             'bank_id'=>Bank::all()->random()->bank_id
             ,'account_number'=>$this->faker->bankAccountNumber,
-            'user_id'=>User::all()->where('role','==',User::NOADMIN),
+            'user_id'=>User::all()->where('role','==',User::NOADMIN)->random()->user_id,
             'saldo'=>$this->faker->randomFloat(1,10,200)
 
         ];

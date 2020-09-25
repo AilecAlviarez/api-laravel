@@ -24,7 +24,7 @@ class BankFactory extends Factory
     {
         return [
             'bank_name'=>$this->faker->name,
-            'method_pay_id'=>MethodPay::all()->where('type','==',MethodPay::ACH)
+            'method_pay_id'=>MethodPay::all()->where('type','==',MethodPay::ACH)->random()->method_pay_id
         ];
     }
 }
