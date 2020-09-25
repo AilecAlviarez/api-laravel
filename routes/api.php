@@ -33,4 +33,8 @@ Route::middleware(['api','admin'])->prefix('admin')->group(function(){
     Route::get('inventary/{id}',[\App\Http\Controllers\Admin\AdminInventaryController::class,'index']);
     Route::apiResource('/categories',\App\Http\Controllers\Admin\CategoryController::class)->except(['edit','create']);
 });
+Route::middleware(['api','user'])->prefix('buyer')->group(function(){
+
+});
+
 
