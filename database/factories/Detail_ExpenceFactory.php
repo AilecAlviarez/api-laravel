@@ -28,8 +28,8 @@ class Detail_ExpenceFactory extends Factory
             //
             'product_id'=>Product::all()->random()->product_id
             ,'quantity'=>$this->faker->numberBetween(1,5),
-            'price'=>$this->faker->randomFloat(2,10,10)
-            ,'expence_id'=>Expence::all()->random()->expence_id
+            'price'=>$this->faker->randomFloat(2,10,150),
+            'expence_id'=>Expence::all()->random()->expence_id
         ];
     }
 }

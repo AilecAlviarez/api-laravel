@@ -42,6 +42,7 @@ class DatabaseSeeder extends Seeder
       //  DB::table('users')->insert(['name'=>'yoyo','email'=>'mariaramireeez2002@gmail.com','password'=>'123456','role'=>User::ADMIN]);
         Category::factory($cant_category)->create();
         Status::factory($cant_status)->create();
+
         MethodPay::factory($method_pay)->create();
         Bank::factory($cant_bank)->create();
         Account::factory($cant_user)->create();

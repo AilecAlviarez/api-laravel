@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Bank;
 use App\Models\MethodPay;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -24,7 +25,8 @@ class MethodPayFactory extends Factory
     {
         return [
             'type'=>$type=$this->faker->randomElement([MethodPay::ACH,MethodPay::NOACH])
-            ,'description'=>$type==MethodPay::ACH?"{$this->faker->bankAccountNumber}":$this->faker->paragraph(2),
+            ,'description'=>$this->faker->paragraph(2),
+            'delivery_address'=>$this->faker->address,
             'date_come'=>$this->faker->date('Y-m-d')
         ];
     }

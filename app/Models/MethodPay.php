@@ -12,7 +12,7 @@ class MethodPay extends Model
     const NOACH='0';
     protected $table='method_pays';
     protected $primaryKey='method_pay_id';
-    protected $fillable=['type','description','date_come'];
+    protected $fillable=['type','description','date_come','delivery_address'];
     protected $casts=[
         'date_come'=>'datetime:Y-m-d'
     ];

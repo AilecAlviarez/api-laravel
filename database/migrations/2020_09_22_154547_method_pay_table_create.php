@@ -16,6 +16,7 @@ class MethodPayTableCreate extends Migration
         Schema::create('method_pays', function (Blueprint $table) {
             $table->id('method_pay_id');
             $table->timestamps();
+            $table->string('delivery_address');
 
             $table->string('type');
             $table->string('description');
