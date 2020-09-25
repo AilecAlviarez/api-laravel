@@ -24,13 +24,20 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
     public $model;
     public $name;
     public $nameplural;
-    //public $data=[];
+    public $rules=[];
     public $request;
 
     public function _getTableThrough($table,$through,$ForeignTrough,$ForeignTable){
         return $this->model->hasManyThrough($table,$through,$ForeignTrough,$ForeignTable);
 
     }
+   public function _validate($request){
+        $validator=Validator::make($request->all(),$this->rules);
+        if($validator->fails()){
+            return $this->errorResponse($validator->errors());
+        }
+        return false;
+   }
     public function _validateRequest($request, $rules)
     {
         $validator=Validator::make($request,$rules);
@@ -80,7 +87,7 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
     {
         // TODO: Implement _update() method.
         $instance=$this->_getInstance($id);
-        $instance->update($request);
+        $instance->update($request->all());
         //$instance->save();
 
         return $this->responseSuccesfully(["message"=>"product from {$this->nameplural}","update {$this->name}"=>$instance]);
