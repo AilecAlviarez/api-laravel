@@ -15,7 +15,10 @@ class CreateBanksTable extends Migration
     {
         Schema::create('banks', function (Blueprint $table) {
             $table->id('bank_id');
-            $table->string('')
+
+            $table->string('bank_name');
+            $table->unsignedBigInteger('method_pay_id');
+            $table->foreign('method_pay_id')->references('method_pay_id')->on('method_pays');
             $table->timestamps();
         });
     }
