@@ -50,10 +50,20 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
     }
     public function validateColumns($request,$rules){
         $data=[];
-        for($i=0;$i<count($request->all());$i++){
-            $requestArray=(array) $request[$i];
-            array_push($data,$this->_validateRequest($requestArray,$rules));
+        if(!is_array($request)){
+            for($i=0;$i<count($request->all());$i++){
+                $requestArray=(array) $request[$i];
+                array_push($data,$this->_validateRequest($requestArray,$rules));
+            }
+
         }
+        else{
+            for($i=0;$i<count($request);$i++){
+                $requestArray=(array) $request[$i];
+                array_push($data,$this->_validateRequest($requestArray,$rules));
+            }
+        }
+
         return $data;
 
     }

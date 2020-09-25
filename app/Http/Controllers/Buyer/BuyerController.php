@@ -15,6 +15,7 @@ use App\Models\Product;
 use App\Models\Status;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 
 class BuyerController extends ApiController
 {
@@ -47,12 +48,18 @@ class BuyerController extends ApiController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function arrayProducts($request){
+    $arrayAux=$request->all();
+    unset($arrayAux[0]);
+    $data=array_values($arrayAux);
+    return $data;
+  }
     public function store(Request $request,$id)
     {
         $buyer=$this->_getInstance($id);
-        $rulesDelivery=['delivery_address'=>'required|string','account_number'];
-
-        $validations=$this->validateColumns($request,$this->rules);
+        //$rulesDelivery=['delivery_address'=>'required|string','account_number'];
+        $requestProducts=$this->arrayProducts($request);
+        $validations=$this->validateColumns($requestProducts,$this->rules);
         $getErrorsValidations=$this->_validateError($validations);
         if($getErrorsValidations)return $getErrorsValidations;
         $expence=$this->_order($request,$buyer);
@@ -62,8 +69,8 @@ class BuyerController extends ApiController
 
     }
     public function validateNumberAccount($request,$buyer){
-        $account=$request['account_number'];
-        $accounts=$buyer->account()->get();
+        $account=$request[0]['account_number'];
+        $accounts=$buyer->account;
         $account_verified=$this->validateIfExistInAccounts($accounts,$account);
         if($account_verified)return $account_verified;
         return false;
@@ -82,7 +89,7 @@ class BuyerController extends ApiController
     }
     public function getDataDelivery($request){
         $data=[];
-        $data['delivery_address']=$request['delivery_address'];
+        $data['delivery_address']=$request[0]['delivery_address'];
 
 
         return $data;
@@ -95,11 +102,11 @@ class BuyerController extends ApiController
         return $data;
     }
     public function methodPay($request){
-        if(!$request['account_number'])return MethodPay::NOACH;
+        if(!$request[0]['account_number'])return MethodPay::NOACH;
         return MethodPay::ACH;
     }
     public function updateSaldo($buyer,$saldo,$newSaldo){
-       foreach ($buyer->accounts as $acc){
+       foreach ($buyer->account() as $acc){
            if($acc->saldo==$saldo){
                $acc->saldo=$newSaldo;
                $acc->save();
@@ -110,11 +117,11 @@ class BuyerController extends ApiController
     public function saveDetails($request,$total,$saldo,$expence,$buyer,$type){
 
         $detail_expences=[];
-        for ($i = 0; $i < count($request->all); $i++) {
+        for ($i = 1;$i<count($request->all());$i++) {
             $dataDetail = $this->getDataDetail($request[$i]);
             $inventary = Inventary::find($dataDetail['product_id']);
             $verifiedStock = $inventary->cant_current_product;
-            $verifiedStock -= $dataDetail['quantity'];
+            $verifiedStock =$verifiedStock- $dataDetail['quantity'];
             if ($verifiedStock < $inventary->stock_min) {
                 return $this->errorResponse('no se puede realizar el pedido porque supera el stock minimo');
 
@@ -156,10 +163,11 @@ class BuyerController extends ApiController
         if($typeMethodPay==MethodPay::ACH){
             $saldo=$this->validateNumberAccount($request,$buyer);
             if($saldo) {
-                $dataExpence = ['user_id' => $buyer->user_id, 'status' => Status::find(0), 'total' => 0];
-                $expence = Expence::create($dataExpence);
                 $dataDelivery = $this->getDataDelivery($request);
-                $Delivery = Deliveries::create($dataDelivery);
+                $Delivery = Deliveries::create(array_merge($dataDelivery,['date_come'=>'1991-02-19']));
+                $dataExpence = ['user_id' => $buyer->user_id, 'status_id' => Status::find(1)->status_id, 'total' => 0,'delivery_id'=>$Delivery->delivery_id,'method_pay_id'=>MethodPay::ACH];
+                $expence = Expence::create($dataExpence);
+
                 $total = $expence->total;
                 $detail_expences=$this->saveDetails($request,$total,$saldo,$expence,$buyer,MethodPay::ACH);
                 return $this->storeSuccesfully($detail_expences,$expence);
@@ -173,10 +181,11 @@ class BuyerController extends ApiController
             }
         }
         else{
-            $dataExpence = ['user_id' => $buyer->user_id, 'status' => Status::find(0), 'total' => 0];
-            $expence = Expence::create($dataExpence);
             $dataDelivery = $this->getDataDelivery($request);
-            $Delivery = Deliveries::create($dataDelivery);
+            $Delivery = Deliveries::create(array_merge($dataDelivery,['date_come'=>'1991-02-19']));
+            $dataExpence = ['user_id' => $buyer->user_id, 'status_id' => Status::find(1)->status_id, 'total' => 0,'delivery_id'=>$Delivery->delivery_id,'method_pay_id'=>MethodPay::NOACH];
+            $expence = Expence::create($dataExpence);
+
             $total = $expence->total;
             $detail_expences=$this->saveDetailsDelivery($request,$total,$expence,$buyer,MethodPay::NOACH);
             return $this->storeSuccesfully($detail_expences,$expence);
@@ -188,7 +197,7 @@ class BuyerController extends ApiController
     }
 public function saveDetailsDelivery($request,$total,$expence,$buyer,$type){
     $detail_expences=[];
-    for ($i = 0; $i < count($request->all); $i++) {
+    for ($i = 1; $i < count($request->all); $i++) {
         $dataDetail = $this->getDataDetail($request[$i]);
         $inventary = Inventary::find($dataDetail['product_id']);
         $verifiedStock = $inventary->cant_current_product;
