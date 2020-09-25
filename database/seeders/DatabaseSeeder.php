@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Account;
 use App\Models\Bank;
 use App\Models\Category;
+use App\Models\Deliveries;
 use App\Models\Detail_Expence;
 use App\Models\Detail_Income;
 use App\Models\Expence;
@@ -47,7 +48,7 @@ class DatabaseSeeder extends Seeder
         Bank::factory($cant_bank)->create();
         Account::factory($cant_user)->create();
 
-
+        Deliveries::factory($cant_expence)->create();
         Expence::factory($cant_expence)->create();
         Product::factory($cant_product)->create();
         /*DB::table('method_pays')->insert(['type'=>MethodPay::NOACH

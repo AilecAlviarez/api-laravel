@@ -10,7 +10,7 @@ class Expence extends Model
     use HasFactory;
     protected $table='expences';
     protected $primaryKey='expence_id';
-    protected $fillable=['user_id','status_id','total','method_pay_id'];
+    protected $fillable=['user_id','status_id','total','method_pay_id','delivery_id'];
     public function detail_expences(){
         return $this->hasMany(Detail_Expence::class,'expence_id','expence_id');
     }
@@ -22,5 +22,8 @@ class Expence extends Model
     }
     public function MethodPay(){
         return $this->hasOne(MethodPay::class);
+    }
+    public function delivery(){
+        return $this->hasOne(Deliveries::class,'delivery_id','delivery_id');
     }
 }

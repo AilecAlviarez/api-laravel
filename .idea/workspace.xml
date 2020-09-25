@@ -6,11 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ee371a-4ae5-450c-858d-2e44cf509a7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Expence.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Expence.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/MethodPay.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MethodPay.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/BankFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/BankFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/Detail_ExpenceFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/Detail_ExpenceFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/ExpenceFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ExpenceFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/MethodPayFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/MethodPayFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_154547_method_pay_table_create.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_154547_method_pay_table_create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_154652_expence_table_create.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_154652_expence_table_create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_193008_trigger_expence_detail_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_193008_trigger_expence_detail_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -178,7 +180,7 @@
       <workItem from="1600961280760" duration="7225000" />
       <workItem from="1600977243399" duration="16818000" />
       <workItem from="1600998070404" duration="1367000" />
-      <workItem from="1601049885119" duration="9596000" />
+      <workItem from="1601049885119" duration="12221000" />
     </task>
     <servers />
   </component>
@@ -202,10 +204,10 @@
       <screen x="0" y="0" width="1366" height="731" />
     </state>
     <state x="815" y="106" width="490" height="558" key="NewPhpClassDialog/0.0.1366.731@0.0.1366.731" timestamp="1600909654436" />
-    <state x="345" y="160" key="run.anything.popup" timestamp="1600987086609">
+    <state x="345" y="160" key="run.anything.popup" timestamp="1601062469611">
       <screen x="0" y="0" width="1366" height="731" />
     </state>
-    <state x="345" y="160" key="run.anything.popup/0.0.1366.731@0.0.1366.731" timestamp="1600987086609" />
+    <state x="345" y="160" key="run.anything.popup/0.0.1366.731@0.0.1366.731" timestamp="1601062469611" />
     <state x="346" y="52" width="672" height="678" key="search.everywhere.popup" timestamp="1600989021985">
       <screen x="0" y="0" width="1366" height="731" />
     </state>

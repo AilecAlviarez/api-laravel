@@ -13,9 +13,9 @@ class TriggerExpenceDetailTable extends Migration
      */
     public function up()
     {
-        DB::unprepared('CREATE TRIGGER update_quantity AFTER INSERT ON detail_expences
+     /*   DB::unprepared('CREATE TRIGGER update_quantity AFTER INSERT ON detail_expences
          FOR EACH ROW BEGIN UPDATE inventary SET cant_product_current=cant_product_current-NEW.quantity WHERE product_id=NEW.product_id;
-         END');
+         END');*/
     }
 
     /**
@@ -25,7 +25,7 @@ class TriggerExpenceDetailTable extends Migration
      */
     public function down()
     {
-        //
+
         //DB::unprepared('DROP TRIGGER `update_quantity`');
     }
 }
