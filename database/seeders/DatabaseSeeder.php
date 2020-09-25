@@ -40,20 +40,20 @@ class DatabaseSeeder extends Seeder
         $cant_detail_expence=60;
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         User::factory($cant_user)->create();
-      //  DB::table('users')->insert(['name'=>'yoyo','email'=>'mariaramireeez2002@gmail.com','password'=>'123456','role'=>User::ADMIN]);
         Category::factory($cant_category)->create();
         Status::factory($cant_status)->create();
 
-        MethodPay::factory($method_pay)->create();
+        //MethodPay::factory($method_pay)->create();
+        DB::table('method_pays')->insert(['type'=>MethodPay::NOACH,'description'=>'pago contra entrega'
+        ]);
+        DB::table('method_pays')->insert(['type'=>MethodPay::ACH,'description'=>'transferencia ACH']);
         Bank::factory($cant_bank)->create();
         Account::factory($cant_user)->create();
 
         Deliveries::factory($cant_expence)->create();
         Expence::factory($cant_expence)->create();
         Product::factory($cant_product)->create();
-        /*DB::table('method_pays')->insert(['type'=>MethodPay::NOACH
-        ]);
-        DB::table('method_pays')->insert(['type'=>MethodPay::ACH]);*/
+
 
 
         Income::factory($cant_income)->create();

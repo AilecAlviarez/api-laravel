@@ -102,7 +102,7 @@ class BuyerController extends ApiController
         return $data;
     }
     public function methodPay($request){
-        if(!$request[0]['account_number'])return MethodPay::NOACH;
+        if(count($request[0])==1)return MethodPay::NOACH;
         return MethodPay::ACH;
     }
     public function updateSaldo($buyer,$saldo,$newSaldo){
@@ -114,7 +114,7 @@ class BuyerController extends ApiController
        }
 
     }
-    public function saveDetails($request,$total,$saldo,$expence,$buyer,$type){
+    public function saveDetails($request,$total,$saldo,$expence,$buyer){
 
         $detail_expences=[];
         for ($i = 1;$i<count($request->all());$i++) {
@@ -134,9 +134,9 @@ class BuyerController extends ApiController
             }else{
                 $saldoNew=$saldo-$total;
                 $expence_detail = Detail_Expence::create(array_merge($dataDetail, ['price' => $product->product_price, 'expence_id' => $expence->expence_id]));
-                if($type==MethodPay::ACH){
+
                     $saldoRestante=$this->updateSaldo($buyer,$saldo,$saldoNew);
-                }
+
 
                 $expence->update(['total'=>$total]);
 
@@ -160,16 +160,18 @@ class BuyerController extends ApiController
 
     public function _order($request,$buyer){
         $typeMethodPay=$this->methodPay($request);
-        if($typeMethodPay==MethodPay::ACH){
+        if($typeMethodPay=='1'){
             $saldo=$this->validateNumberAccount($request,$buyer);
             if($saldo) {
                 $dataDelivery = $this->getDataDelivery($request);
                 $Delivery = Deliveries::create(array_merge($dataDelivery,['date_come'=>'1991-02-19']));
-                $dataExpence = ['user_id' => $buyer->user_id, 'status_id' => Status::find(1)->status_id, 'total' => 0,'delivery_id'=>$Delivery->delivery_id,'method_pay_id'=>MethodPay::ACH];
+                $dataExpence = ['user_id' => $buyer->user_id,
+                    'status_id' => Status::find(1)->status_id, 'total' => 0,'delivery_id'=>$Delivery->delivery_id,
+                    'method_pay_id'=>MethodPay::find(1)->method_pay_id];
                 $expence = Expence::create($dataExpence);
 
                 $total = $expence->total;
-                $detail_expences=$this->saveDetails($request,$total,$saldo,$expence,$buyer,MethodPay::ACH);
+                $detail_expences=$this->saveDetails($request,$total,$saldo,$expence,$buyer);
                 return $this->storeSuccesfully($detail_expences,$expence);
 
 
@@ -183,7 +185,9 @@ class BuyerController extends ApiController
         else{
             $dataDelivery = $this->getDataDelivery($request);
             $Delivery = Deliveries::create(array_merge($dataDelivery,['date_come'=>'1991-02-19']));
-            $dataExpence = ['user_id' => $buyer->user_id, 'status_id' => Status::find(1)->status_id, 'total' => 0,'delivery_id'=>$Delivery->delivery_id,'method_pay_id'=>MethodPay::NOACH];
+            $dataExpence = ['user_id' => $buyer->user_id,
+                'status_id' => Status::find(1)->status_id, 'total' => 0,'delivery_id'=>$Delivery->delivery_id,
+                'method_pay_id'=>MethodPay::find(2)->method_pay_id];
             $expence = Expence::create($dataExpence);
 
             $total = $expence->total;
@@ -197,7 +201,7 @@ class BuyerController extends ApiController
     }
 public function saveDetailsDelivery($request,$total,$expence,$buyer,$type){
     $detail_expences=[];
-    for ($i = 1; $i < count($request->all); $i++) {
+    for ($i = 1; $i < count($request->all()); $i++) {
         $dataDetail = $this->getDataDetail($request[$i]);
         $inventary = Inventary::find($dataDetail['product_id']);
         $verifiedStock = $inventary->cant_current_product;

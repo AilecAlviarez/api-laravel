@@ -13,7 +13,5 @@ class MethodPay extends Model
     protected $table='method_pays';
     protected $primaryKey='method_pay_id';
     protected $fillable=['type','description'];
-    protected $casts=[
-        'date_come'=>'datetime:Y-m-d'
-    ];
+
 }
