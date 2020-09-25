@@ -16,7 +16,7 @@ class ExpenceTableCreate extends Migration
         Schema::create('expences',function (Blueprint $table){
            $table->id('expence_id');
             $table->unsignedBigInteger('user_id');
-            $table->integer('total')->unsigned();
+            $table->unsignedDecimal('total')->unsigned();
               $table->unsignedBigInteger('status_id');
                 $table->unsignedBigInteger('method_pay_id');
                 $table->foreign('user_id')->references('user_id')->on('users');

@@ -29,7 +29,7 @@ class ExpenceFactory extends Factory
         return [
             'user_id'=>User::all()->where('role','==','0')->random()->user_id,
             'status_id'=>Status::all()->random()->status_id,
-            'total'=>$this->faker->randomFloat(1,10,20),
+            'total'=>$this->faker->randomFloat(1,10,20000),
             'method_pay_id'=>MethodPay::all()->random()->method_pay_id
         ];
     }
