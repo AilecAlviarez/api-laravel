@@ -16,6 +16,12 @@ class AdminController extends ApiController
         $this->name ='user';
         $this->model = new User();
         $this->namePlural = 'users';
+        $this->rules=[
+            'name'=>'required',
+            'email'=>'required|email|unique:users',
+            'password'=>'required|min:6|confirmed',
+            'role'=>'required|'];
+
 
     }
     /**
@@ -28,6 +34,20 @@ class AdminController extends ApiController
         //
         return $this->_showAll();
 
+    }
+    public function show($id){
+        return $this->_showOne($id);
+
+    }
+    public function store(Request $request){
+        return $this->_store($request);
+
+    }
+    public function update(Request $request,$id){
+        return $this->_update($request,$id);
+    }
+    public function destroy($id){
+        return $this->_delete($id);
     }
 
 
