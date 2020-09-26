@@ -20,7 +20,7 @@ class AdminProductController extends ApiController
      * @return \Illuminate\Http\Response
      */
 
-    private $rules=[
+    public $rules=[
             'product_name'=>'required|string',
             'product_description'=>'required|string',
             'product_price'=>'required|regex:/^\d+(\.\d{1,2})?$/',
