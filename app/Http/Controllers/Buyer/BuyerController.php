@@ -106,10 +106,11 @@ class BuyerController extends ApiController
         return MethodPay::ACH;
     }
     public function updateSaldo($buyer,$saldo,$newSaldo){
-       foreach ($buyer->account() as $acc){
+       foreach ($buyer->account()->get() as $acc){
            if($acc->saldo==$saldo){
                $acc->saldo=$newSaldo;
                $acc->save();
+
            }
        }
 
@@ -141,6 +142,7 @@ class BuyerController extends ApiController
                 $expence->update(['total'=>$total]);
 
                 array_push($detail_expences,$expence_detail);
+
 
 
             }
