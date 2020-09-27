@@ -20,7 +20,7 @@ class AdminController extends ApiController
             'name'=>'required',
             'email'=>'required|email|unique:users',
             'password'=>'required|min:6|confirmed',
-            'role'=>'required|'];
+            'role'=>'required|string|min:0|max:1'];
 
 
     }

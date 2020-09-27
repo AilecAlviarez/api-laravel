@@ -131,6 +131,8 @@ class AdminProductController extends ApiController
     public function deleteProduct($products,$id){
         foreach ($products as $product){
             if($product->product_id==$id){
+                $inventary=$product->inventary;
+                $inventary->delete();
                 return $this->_delete($product->product_id);
             }
         }
