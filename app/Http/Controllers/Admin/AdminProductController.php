@@ -120,6 +120,23 @@ class AdminProductController extends ApiController
         return $this->responseSuccesfully($products);
 
     }
+    public function destroy($id,$idProduct){
+        $admin=$this->_getInstance($id);
+
+        $inventaries=$this->_GetRelations($admin->detail_incomes,'inventary');
+        $products=$this->_GetRelations($inventaries,'product');
+        return $this->deleteProduct($products,$idProduct);
+
+    }
+    public function deleteProduct($products,$id){
+        foreach ($products as $product){
+            if($product->product_id==$id){
+                return $this->_delete($product->product_id);
+            }
+        }
+        return $this->errorResponse('error product delete');
+
+    }
 
 
 

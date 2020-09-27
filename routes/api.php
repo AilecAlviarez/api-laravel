@@ -28,6 +28,7 @@ Route::middleware(['api','admin'])->prefix('admin')->group(function(){
     Route::put('/product/{id}/{idProduct}',[\App\Http\Controllers\Admin\AdminProductController::class,'update']);
     //para que el metodo store pueda recibir un parametro se asigna explicitamente
     Route::post('/products/{id}',[\App\Http\Controllers\Admin\AdminProductController::class,'store']);
+    Route::delete('product/{id}/{idProduct}',[\App\Http\Controllers\Admin\AdminProductController::class,'destroy']);
     Route::get('/categories',[\App\Http\Controllers\Admin\AdminCategoryController::class,'index']);
     Route::get('/incomes/{id}',[\App\Http\Controllers\Admin\AdminIncomeController::class,'index']);
     Route::get('inventary/{id}',[\App\Http\Controllers\Admin\AdminInventaryController::class,'index']);
