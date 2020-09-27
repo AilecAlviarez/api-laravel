@@ -11,5 +11,9 @@ class Detail_Expence extends Model
     protected $primaryKey='detail_expence_id';
     protected $table='detail_expences';
     protected $fillable=['product_id','quantity','price','expence_id'];
+    public function expence(){
+        return $this->hasOne(Expence::class,'expence_id','expence_id');
+    }
+
 
 }

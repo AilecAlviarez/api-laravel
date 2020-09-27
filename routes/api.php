@@ -33,6 +33,7 @@ Route::middleware(['api','admin'])->prefix('admin')->group(function(){
     Route::get('/incomes/{id}',[\App\Http\Controllers\Admin\AdminIncomeController::class,'index']);
     Route::get('inventary/{id}',[\App\Http\Controllers\Admin\AdminInventaryController::class,'index']);
     Route::apiResource('/categories',\App\Http\Controllers\Admin\CategoryController::class)->except(['edit','create']);
+    Route::get('/deliveries/{id}',[\App\Http\Controllers\Admin\AdminDeliveryController::class,'show']);
 });
 Route::middleware(['api','user'])->prefix('buyer')->group(function(){
     Route::get('/',[\App\Http\Controllers\Buyer\BuyerController::class,'index']);
