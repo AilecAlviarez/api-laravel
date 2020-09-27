@@ -125,7 +125,7 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
     public function _GetRelations($array_collection,$property){
         $data=[];
 
-     //  if(property_exists($array_collection[0],$property)){
+
             foreach ($array_collection as $instance){
                 if($instance[$property]!=null){
                     array_push($data,$instance[$property]);
@@ -133,8 +133,7 @@ class ApiController extends Controller implements Istore,IshowAll,Ishow,Iupdate,
             }
             return $data;
 
-        //}
-        //return 'method no exist';
+
 
 
     }
