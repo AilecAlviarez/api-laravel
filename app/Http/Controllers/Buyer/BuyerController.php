@@ -166,7 +166,7 @@ class BuyerController extends ApiController
             $saldo=$this->validateNumberAccount($request,$buyer);
             if($saldo) {
                 $dataDelivery = $this->getDataDelivery($request);
-                $Delivery = Deliveries::create(array_merge($dataDelivery,['date_come'=>\date('Y-m-d')]));
+                $Delivery = Deliveries::create(array_merge($dataDelivery,['date_come'=>\date('Y-m-d',mt_rand(0,500000000))]));
                 $dataExpence = ['user_id' => $buyer->user_id,
                     'status_id' => Status::find(1)->status_id, 'total' => 0,'delivery_id'=>$Delivery->delivery_id,
                     'method_pay_id'=>MethodPay::find(1)->method_pay_id];
