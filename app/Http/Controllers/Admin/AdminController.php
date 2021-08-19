@@ -8,7 +8,6 @@ use App\Models\Admin;
 use App\Models\Buyer;
 use App\Models\User;
 use Illuminate\Http\Request;
-
 class AdminController extends ApiController
 {
     public function __construct()
